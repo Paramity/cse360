@@ -23,11 +23,39 @@ public class CalculatorTest {
 	}
 	
 	/**
+	 * Test to ensure that Calculator's getTotal method is working properly
+	 */
+	@Test
+	public void testGetTotal() {
+		Calculator calc = new Calculator();
+		assertEquals(0,calc.getTotal());
+	}
+	
+	/**
 	 * Test to ensure that Calculator's add method is working properly
 	 */
 	@Test
 	public void testAdd() {
-		fail("Not yet implemented");
+		Calculator calc = new Calculator();
+		assertEquals(0,calc.getTotal());
+		
+		calc.add(0);
+		assertEquals(0,calc.getTotal());
+		
+		calc.add(1);
+		assertEquals(1,calc.getTotal());
+		
+		calc.add(-1);
+		assertEquals(0,calc.getTotal());
+		
+		calc.add(9999);
+		assertEquals(9999,calc.getTotal());
+		
+		calc.add(1);
+		assertEquals(10000,calc.getTotal());
+		
+		calc.add(-10000);
+		assertEquals(0,calc.getTotal());
 	}
 	
 	/**
@@ -35,7 +63,35 @@ public class CalculatorTest {
 	 */
 	@Test
 	public void testDivide() {
-		fail("Not yet implemented");
+		Calculator calc = new Calculator();
+		assertEquals(0,calc.getTotal());
+		
+		calc.add(100);
+		calc.divide(5);
+		assertEquals(20,calc.getTotal());
+		
+		calc.divide(2);
+		assertEquals(10,calc.getTotal());
+		
+		calc.divide(0);
+		assertEquals(0,calc.getTotal());
+		
+		calc.subtract(100);
+		calc.divide(20);
+		assertEquals(-5,calc.getTotal());
+		
+		calc.divide(0);
+		assertEquals(0,calc.getTotal());
+
+		calc.divide(-1000);
+		assertEquals(0,calc.getTotal());
+		
+		calc.divide(1000);
+		assertEquals(0,calc.getTotal());
+		
+		calc.subtract(500);
+		calc.divide(-50);
+		assertEquals(10,calc.getTotal());
 	}
 	
 	/**
@@ -43,7 +99,45 @@ public class CalculatorTest {
 	 */
 	@Test
 	public void testMultiply() {
-		fail("Not yet implemented");
+		Calculator calc = new Calculator();
+		assertEquals(0,calc.getTotal());
+		
+		calc.multiply(1000);
+		assertEquals(0,calc.getTotal());
+		
+		calc.multiply(-1000);
+		assertEquals(0,calc.getTotal());
+		
+		calc.add(1);
+		calc.multiply(100);
+		assertEquals(100,calc.getTotal());
+		
+		calc.multiply(2);
+		assertEquals(200,calc.getTotal());
+		
+		calc.multiply(-3);
+		assertEquals(-600,calc.getTotal());
+		
+		calc.multiply(0);
+		assertEquals(0,calc.getTotal());
+		
+		calc.add(2);
+		calc.multiply(10000);
+		assertEquals(20000,calc.getTotal());
+		
+		calc.multiply(0);
+		assertEquals(0,calc.getTotal());
+		
+		calc.add(2);
+		calc.multiply(-10000);
+		assertEquals(-20000,calc.getTotal());
+		
+		calc.multiply(0);
+		assertEquals(0,calc.getTotal());
+		
+		calc.subtract(2);
+		calc.multiply(-10000);
+		assertEquals(20000,calc.getTotal());
 	}
 	
 	/**
@@ -51,7 +145,26 @@ public class CalculatorTest {
 	 */
 	@Test
 	public void testSubtract() {
-		fail("Not yet implemented");
+		Calculator calc = new Calculator();
+		assertEquals(0,calc.getTotal());
+		
+		calc.subtract(0);
+		assertEquals(0,calc.getTotal());
+		
+		calc.subtract(1);
+		assertEquals(-1,calc.getTotal());
+		
+		calc.subtract(-1);
+		assertEquals(0,calc.getTotal());
+		
+		calc.subtract(9999);
+		assertEquals(-9999,calc.getTotal());
+		
+		calc.subtract(1);
+		assertEquals(-10000,calc.getTotal());
+		
+		calc.subtract(-10000);
+		assertEquals(0,calc.getTotal());
 	}
 	
 	/**
@@ -62,13 +175,7 @@ public class CalculatorTest {
 		fail("Not yet implemented");
 	}
 	
-	/**
-	 * Test to ensure that Calculator's getTotal method is working properly
-	 */
-	@Test
-	public void testGetTotal() {
-		fail("Not yet implemented");
-	}
+
 	
 
 }
