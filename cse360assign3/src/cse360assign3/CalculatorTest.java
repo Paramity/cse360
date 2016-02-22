@@ -2,6 +2,7 @@
  * 
  * @author Peter K., Pin:421
  * @version 2/22/16
+ * GitHub URL: https://github.com/Paramity/cse360
  */
 package cse360assign3;
 
@@ -172,7 +173,52 @@ public class CalculatorTest {
 	 */
 	@Test
 	public void testGetHistory() {
-		fail("Not yet implemented");
+		Calculator calc = new Calculator();
+		assertEquals("0",calc.getHistory());
+		
+		calc.add(5);
+		assertEquals("0 + 5",calc.getHistory());
+		
+		calc.multiply(5);
+		assertEquals("0 + 5 * 5",calc.getHistory());
+
+		calc.subtract(5);
+		assertEquals("0 + 5 * 5 - 5",calc.getHistory());
+
+		calc.divide(5);
+		assertEquals("0 + 5 * 5 - 5 / 5",calc.getHistory());
+		
+		Calculator calc2 = new Calculator();
+		assertEquals("0",calc2.getHistory());
+		
+		calc2.add(-5);
+		assertEquals("0 + -5",calc2.getHistory());
+		
+		calc2.multiply(-5);
+		assertEquals("0 + -5 * -5",calc2.getHistory());
+
+		calc2.subtract(-5);
+		assertEquals("0 + -5 * -5 - -5",calc2.getHistory());
+
+		calc2.divide(-5);
+		assertEquals("0 + -5 * -5 - -5 / -5",calc2.getHistory());
+		
+		Calculator calc3 = new Calculator();
+		assertEquals("0",calc3.getHistory());
+		
+		//test everything, adding/subtracting/dividing (also by 0)/multiplying by positive and negative numbers
+		calc3.add(9000);
+		calc3.add(-9000);
+		calc3.subtract(9000);
+		calc3.subtract(-9000);
+		calc3.multiply(9000);
+		calc3.multiply(-9000);
+		calc3.divide(9000);
+		calc3.divide(-9000);
+		calc3.divide(0);
+
+		assertEquals("0 + 9000 + -9000 - 9000 - -9000 * 9000 * -9000 / 9000 / -9000 / 0",calc3.getHistory());
+
 	}
 	
 

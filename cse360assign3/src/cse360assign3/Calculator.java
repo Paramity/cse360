@@ -2,18 +2,22 @@
  * 
  * @version 2/27/16
  * @author Peter K., Pin: 421
+ * GitHub URL: https://github.com/Paramity/cse360
  */
 package cse360assign3;
 
 public class Calculator {
-// This variable stores the total value after every operation
-	private int total;
+	
+	private int total; // This variable stores the total value after every operation
+
+	private String history; //This String stores the history of operations done
 	
 	/**This is the constructor for the calculator, it sets the total to 0
 	 * 
 	 */
 	public Calculator () {
 		total = 0;  // not needed - included for clarity
+		history = "0"; //initialize history to include 0, which precedes the first operation
 	}
 	
 	/** This is a getter method which will return the private integer total, which stores the total value after operations
@@ -30,6 +34,7 @@ public class Calculator {
 	 */
 	public void add (int value) {
 		total += value;
+		history = history + " + " + value;
 	}
 	
 	/** This method allows for the user to subtract from the total
@@ -38,6 +43,8 @@ public class Calculator {
 	 */
 	public void subtract (int value) {
 		total -= value;
+		history = history + " - " + value;
+
 	}
 	
 	/** This method allows the user to multiply the total by a specified amount
@@ -46,6 +53,8 @@ public class Calculator {
 	 */
 	public void multiply (int value) {
 		total = total * value;
+		history = history + " * " + value;
+
 	}
 	
 	/** This method allows the user to divide the total by a specified amount, if 0 is passed, the total will be set to 0 and no error will be given
@@ -55,10 +64,14 @@ public class Calculator {
 	public void divide (int value) {
 		if (value == 0) {
 			total = 0;
+			
 		}
 		else {
 			total = total / value;
 		}
+		
+		history = history + " / " + value;
+
 	}
 	
 	/** This method will return a history of operations done in the form of a String
@@ -66,6 +79,6 @@ public class Calculator {
 	 * @return history a history of operations
 	 */
 	public String getHistory () {
-		return "";
+		return history;
 	}
 }
